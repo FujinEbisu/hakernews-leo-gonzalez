@@ -1,0 +1,22 @@
+<div class="container p-5">
+<div class="row align-items-start justify-content-center">
+  <div class="card" data-controller="upvote" style="width: 600px; margin: 10px; border: 1px solid #000;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">By : <%= @post.by %></h6>
+    <p class="card-text">Votes : <%= @post.vote %></p>
+    <%= link_to "Back", posts_path %>
+  </div>
+</div>
+</div>
+<%= render "comments/new", post: @post, comment: @comment %>
+ 
+<% @comments.each do |comment| %>
+          <div class="card mb-2">
+            <div class="card-body">
+              <%= render "comments/show", comment: comment %>
+            </div>
+          </div>
+        <% end %>
+</div>
+
